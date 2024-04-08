@@ -17,7 +17,7 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label for="username">Username</label>
-                    <input type="text" class="form-control" name="username" id="username" value="<%= player.user_name %>" required disabled title="Username can't be changed">
+                    <input type="text" class="form-control" name="username" id="username" value="<%= player.user_name %>" required disabled title="Username can't be changed" > 
                 </div>
             </div>
             <div class="form-row">
@@ -40,6 +40,11 @@
                         <option>Left Wing Forward</option>
                         <option>Striker</option>
                     </select>
+                </div>
+                
+                <div class="form-group col-md-12">
+                    <label for="address">Address</label>
+                    <textarea class="form-control" name="address" rows="10"  required ><%=player.address%></textarea>
                 </div>
             </div>
             <button type="submit" class="btn btn-success float-right">Update Player</button>

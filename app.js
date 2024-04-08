@@ -17,7 +17,7 @@ const db = mysql.createConnection ({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'socka'
+    database: 'newfootball'
 });
 
 // connect to database

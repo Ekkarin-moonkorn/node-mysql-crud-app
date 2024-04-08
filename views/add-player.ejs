@@ -1,47 +1,99 @@
 <% include partials/header.ejs %>
     <div class="container">
-        <% if (message != '') { %>
-            <p class="text-center text-danger"><%= message %></p>
-        <% } %>
-        <form class="add-player-form" action="" method="post" enctype="multipart/form-data">
-            <div class="form-row">
-                <div class="form-group col-md-4">
-                    <input type="text" class="form-control" name="first_name" id="first-name" placeholder="First Name" required>
-                </div>
-                <div class="form-group col-md-4">
-                    <input type="text" class="form-control" name="last_name" id="last-name" placeholder="Last Name" required>
-                </div>
-                <div class="form-group col-md-4">
-                    <input type="text" class="form-control" name="username" id="username" placeholder="Username" required>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <input type="number" class="form-control" name="number" id="number" placeholder="Number" required>
-                </div>
-                <div class="form-group col-md-6">
-                    <select id="position" name="position" class="form-control" required>
-                        <option selected disabled>Choose position</option>
-                        <option>Goalkeeper</option>
-                        <option>Centre Back</option>
-                        <option>Right Back</option>
-                        <option>Left Back</option>
-                        <option>Defensive Midfielder</option>
-                        <option>Central Midfielder</option>
-                        <option>Attacking Midfielder</option>
-                        <option>Right Wing Forward</option>
-                        <option>Left Wing Forward</option>
-                        <option>Striker</option>
-                    </select>
-                </div>
-                <div class="col-md-12">
-                    <label for="player-img"><b>Player Image</b></label><br>
-                    <input type="file" name="image" id="player-img" class="" required>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary float-right">Add Player</button>
-        </form>
+        <% if (message !='' ) { %>
+            <p class="text-center text-danger">
+                <%= message %>
+            </p>
+            <% } %>
+                <form class="add-player-form" action="" method="post" enctype="multipart/form-data">
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label class="frist_name">First Name</label>
+                            <input type="text" class="form-control" name="first_name" id="first-name"
+                                placeholder="First Name" required>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="last_name">Last Name</label>
+                            <input type="text" class="form-control" name="last_name" id="last-name"
+                                placeholder="Last Name" required>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="username">User Name</label>
+                            <input type="text" class="form-control" name="username" id="username" placeholder="Username"
+                                required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label class="number">Number</label>
+                            <input type="number" class="form-control" name="number" id="number" placeholder="Number"
+                                required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="position">Position</label>
+                            <select id="position" name="position" class="form-control" required>
+                                <option selected disabled>Choose position</option>
+                                <option>Goalkeeper</option>
+                                <option>Centre Back</option>
+                                <option>Right Back</option>
+                                <option>Left Back</option>
+                                <option>Defensive Midfielder</option>
+                                <option>Central Midfielder</option>
+                                <option>Attacking Midfielder</option>
+                                <option>Right Wing Forward</option>
+                                <option>Left Wing Forward</option>
+                                <option>Striker</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="address">Address</label>
+                            <textarea class="form-control" name="address" rows="10" required> </textarea>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="player-img"><b>Player Image</b></label><br>
+                            <input type="file" name="image" id="player-img" class="" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary float-right">Add Player</button>
+                </form>
     </div>
-</div>
-</body>
-</html>
+    </div>
+    <script>
+        // เลือกอิลิเมนต์ input ของ firstname
+        const firstNameInput = document.getElementById('first-name');
+        const lastNameInput = document.getElementById('last-name');
+        //console.log(lastNameInput.value);
+    
+        //  T && T = T ที่เหลือเป็นเท็จ  
+        // F|| F = F ที่เหลือเป็นจริง 
+        // if( (1==1 && 2==2) || ("3"===(1+2)) ){
+        //     console.log("True")  
+        // }else{ 
+        //     console.log("false");
+        // }
+    
+        // เพิ่ม Event Listener เมื่อมีการเปลี่ยนแปลงใน input
+        firstNameInput.addEventListener('input', function () {
+            // อ่านค่าใหม่ของ firstname จาก input
+            const newFirstName = firstNameInput.value;
+            // หากต้องการตั้งค่าค่าให้กับ input ที่มี id เป็น "firstname"
+            document.getElementById("username").value = firstNameInput.value+ "." +lastNameInput.value;
+            console.log(firstNameInput.value + "." + lastNameInput.value);
+    
+    
+            // แสดงผลลัพท์ผ่าน console.log
+            // console.log('Firstname มีการเปลี่ยนแปลงเป็น: ', newFirstName);
+        });
+        lastNameInput.addEventListener('input', function () {
+            // อ่านค่าใหม่ของ firstname จาก input
+            const newlastName = lastNameInput.value;
+            // หากต้องการตั้งค่าค่าให้กับ input ที่มี id เป็น "firstname"
+            document.getElementById("username").value = firstNameInput.value + "." + lastNameInput.value;
+    
+        });
+    
+    
+    </script>
+    </body>
+
+    </html>
